@@ -156,29 +156,37 @@ function App() {
     return count;
   }
 
-  return (
-    <div>
-      <Navbar/>
+  function Filterform() {
+    return (
       <div> 
-        Filter by Category:
-        <form>
-        <select name="selectList" onChange={selectFilterType}>
-          <option value="None">None</option>
-          <option value="Electronics">Electronics</option>
-          <option value="Furniture">Furniture</option>
-          <option value="Clothing">Clothing</option>
-        </select>
-        </form>
-      </div>
-      
+      Filter by Category:
+      <form>
+      <select name="selectList" onChange={selectFilterType}>
+        <option value="None">None</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Clothing">Clothing</option>
+      </select>
+      </form>
+    </div>
+    );
 
+  }
+
+  function Wishlist() {
+    return (
       <div>    
       <form>
         <input type="checkbox" id="wishlist" name="Wish List" value="Wish List" onChange={wishlist} />
         <label for="wishlist">Filter by Wish List</label>
       </form> 
       </div>
+    );
 
+  }
+
+  function Sorter() {
+    return (
       <div>    
       <form>
         <input type="radio" id="Price LH" name="sorting method" value="Price LH" onChange={sorting} />
@@ -189,7 +197,12 @@ function App() {
         <label for="javascript">None</label>
       </form> 
       </div>
+    );
 
+  }
+
+  function Cart() {
+    return (
       <div className="cart">
         <h2>Cart </h2>
         <h3>Total = ${(Math.round(price * 100) / 100).toFixed(2)} </h3>
@@ -198,9 +211,17 @@ function App() {
         <p>{NumberOf(x)} {x} </p>
         )}</h4>
       </div>
-      
+    );
 
+  }
 
+  return (
+    <div>
+      <Navbar/>
+      <Filterform/>
+      <Wishlist/>
+      <Sorter />
+      <Cart />
       <ItemData />
     </div>  
   );
