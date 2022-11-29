@@ -4,7 +4,7 @@
   font-size: 28px;
   display: flex;
   justify-content: center;
-} */
+}
  .logo{
   width: 100px;
   padding-top: 0px;
@@ -35,7 +35,7 @@
 .topnav a.active {
   background-color: #94949479;
   color: rgb(7, 7, 7); 
-} */
+}
 
 .pitem{
   display: flex;
