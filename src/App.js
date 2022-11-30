@@ -7,6 +7,7 @@ import products from "./products.json";
 
 function App() {
   const [price, setPrice] = useState(0);
+  const [wishPrice, setWishPrice] = useState(0);
   const [sort, setSort] = useState("None");
   const [filter, setFilter] = useState("None");
   const [items, setItems] = useState([]);
@@ -15,10 +16,6 @@ function App() {
   const [want, setWant] = useState([])
   const [holder, setHolder] = useState(productFil)
   const [bool, setBool] = useState(false)
-
-
-
-
 
   function handleClick(item){
     console.log("Item Added to Cart")
@@ -99,7 +96,9 @@ function App() {
       productFil.sort(function(a, b){return a.price - b.price})
     } else if (method == "Price HL") {
       productFil.sort(function(a, b){return b.price - a.price})
-    } 
+    } else {
+      productFil.sort(function(a, b){return a.id - b.id})
+    }
     setProductFil(productFil);
   }
 
@@ -174,6 +173,7 @@ function App() {
   }
 
   function Wishlist() {
+
     return (
       <div>    
       <form>
@@ -215,6 +215,26 @@ function App() {
 
   }
 
+  function WishList() {
+    let price  = 0;
+    for (let i = 0; i < want.length; i++) {
+      for (let a = 0; a < productFil.length; a++) {
+        if (want[i] == productFil[a].title) {
+          price = price + productFil[a].price;
+        }
+      }
+    }
+    setWishPrice(price);
+    return (
+      <div className="cart">
+        <h2>Wish List </h2>
+        <h3>Total = ${(Math.round(wishPrice * 100) / 100).toFixed(2)} </h3>
+
+      </div>
+    );
+
+  }
+
   return (
     <div>
       <Navbar/>
@@ -222,6 +242,7 @@ function App() {
       <Wishlist/>
       <Sorter />
       <Cart />
+      <WishList/>
       <ItemData />
     </div>  
   );

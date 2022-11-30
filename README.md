@@ -25,6 +25,6 @@ to see what should be displayed and what shouldn't. It calls functions based on 
 and then states change and new data is displayed via the html return functions.
 
 ### How the User Triggers State Changes
-The user triggers state changes simply by clicking the buttons. ON the click the function will be called that
-will change the state variables. 
+The user triggers state changes simply by clicking the buttons. On the click the function will be called that
+will change the state variables.
 
